@@ -1,14 +1,4 @@
-# Bus Booking Application
 
-This repository contains the source code for the Bus Booking Application built with Spring Boot. It includes the necessary steps to build, deploy, and test the application, as well as CI/CD pipelines using both GitHub Actions and Jenkins.
-
-Shell script to setup the environment.
-
-#!/bin/bash
-set -e
-echo "Starting Maven project setup..."
-
-# Step 1: Install Java 11
 if ! java -version &>/dev/null; then
     echo "Installing Java 17..."
     sudo apt update
@@ -30,7 +20,17 @@ if ! grep -q "JAVA_HOME=$JAVA_HOME_PATH" /etc/environment; then
 else
     echo "JAVA_HOME is already set."
 fi
-================================================================================================================================================
+
+# Install Maven
+if ! mvn -version &>/dev/null; then
+    echo "Installing Maven..."
+    sudo apt install -y maven
+else
+    echo "Maven is already installed:"
+    mvn -version
+fi
+
+echo "Setup completed successfully."
 #!/bin/bash
 
 # Step 1: Set up Maven environment
@@ -116,7 +116,7 @@ jobs:
         - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
 
       # Cache Maven dependencies
