@@ -1,12 +1,4 @@
 
-==========================================================================================================================================================================
-#!/bin/bash
-
-set -e
-
-echo "Starting installation of Java 11 and Maven..."
-
-# Install Java 17
 if ! java -version &>/dev/null; then
     echo "Installing Java 17..."
     sudo apt update
@@ -39,7 +31,6 @@ else
 fi
 
 echo "Setup completed successfully."
-============================================================================================================================================================================
 #!/bin/bash
 
 # Step 1: Set up Maven environment
@@ -96,7 +87,6 @@ Gracefully stop the Spring Boot application after 5 minutes.
 GitHub Actions CI/CD Pipeline
 This project includes a GitHub Actions CI pipeline that automatically builds, tests, and deploys the Spring Boot application whenever you push changes to the repository.
 
-==========================================================================================================================================================================
 ==========================================================================================================================================================================
 
 .github/workflows/java-ci.yml
@@ -193,7 +183,6 @@ Wait for 5 minutes: Waits for 5 minutes to simulate the running app.
 Gracefully stop the Spring Boot application: Stops the Spring Boot app using the spring-boot:stop command.
 Jenkins Pipeline
 The following Jenkins pipeline (Jenkinsfile) can be used for CI/CD with Jenkins.
-===========================================================================================================================================================================
 ===========================================================================================================================================================================
 Jenkinsfile
 groovy
