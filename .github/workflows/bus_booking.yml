@@ -27,6 +27,7 @@ jobs:
       - name: upload logs
         uses: actions/upload-artifact@v4
         with:
+          path: logs/
           name: build-logs
         
       - name: Download WAR artifact
