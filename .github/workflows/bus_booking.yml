@@ -44,12 +44,12 @@ jobs:
         run: |
           echo "Checking application status..."
           sleep 15
-          curl -I http://localhost:8080/status || echo "Application is not responding"
+          curl -I http://43.205.144.50:8080/status || echo "Application is not responding"
 
       - name: verify deployment
         run: |
           echo "Verifying deployment..."
-          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/health)
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" http://43.205.144.50:8080/health)
           if [ "$RESPONSE" -eq 200 ]; then
             echo "Deployment verified successfully."
           else
